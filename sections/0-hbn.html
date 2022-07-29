@@ -1,0 +1,122 @@
+<section data-menu-title="HBN">
+  <h1>Healthy Brain Network (HBN)</h1>
+</section>
+
+<section>
+  <h2>The HBN study</h2>
+  <div class="row">
+    <div class="col-15">
+      <img class="logo" src="./img/child-mind-institute-hbn-logo.jpg" width="500" align="middle"
+          alt="Healthy Brain Network logo">
+    </div>
+    <div class="col-85" style="text-align: left;">
+      <ul>
+        <li>a landmark pediatric mental health study,</li>
+        <li>an ongoing initiative collecting MRI and clinical assessment data from 10,000 NYC area adolescents (ages 5-21),</li>
+        <li>at four sites: RU, CBIC, CUNY, SI</li>
+        <li>Includes a broad range of psychiatric, behavioral, cognitive, and lifestyle information from both healthy controls and children with a range of disorders.</li>
+        <li>openly available on FCP-INDI</li>
+        <li>For further details, see</li>
+        <ul>
+          <li>Data descriptor:
+            <a href="https://doi.org/10.1038/sdata.2017.181">
+              Alexander et al. An open resource for transdiagnostic research in pediatric mental health and learning disorders. Sci Data 4, 170181 (2017).
+            </a>
+          </li>
+          <li>Scientific data portal
+            <a href="http://fcon_1000.projects.nitrc.org/indi/cmi_healthy_brain_network/index.html">
+              http://fcon_1000.projects.nitrc.org/indi/cmi_healthy_brain_network/index.html
+            </a>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Imaging data</h2>
+  <div class="row">
+    <div class="col-23">
+      <ul>
+        <li>Data is stored in AWS bucket s3://fcp-indi/data/Projects/HBN</li>
+        <li>
+          Access with <a href="https://aws.amazon.com/cli/">AWS CLI</a> or your
+          favorite AWS SDK for <a
+          href="https://boto3.amazonaws.com/v1/documentation/api/latest/index.html">Python</a>
+          or <a href="https://paws-r.github.io/">R</a>.
+        </li>
+        <li>Current folders:</li>
+        <ul>
+          <li>EEG: 3568</li>
+          <li>Raw MRI:</li>
+          <ul>
+            <li>HBN/BIDS_datalad: 						2612 participants (no derivatives)</li>
+            <li>HBN/BIDS_curated: 						2615 participants</li>
+            <li>HBN/MRI: a not-quite BIDS-compliant source for the above curated datasets</li>
+          </ul>
+          <li>Preprocessed MRI data:</li> 
+          <ul>
+            <li>HBN/BIDS_curated/derivatives/qsiprep: 			2136</li>
+            <li>HBN/BIDS_curated/derivatives/afq: 			1885</li>
+            <li>HBN/CPAC_preprocessed: 					1503</li>
+            <li>HBN/CPAC_preprocessed_Derivatives: 			1556</li>
+          </ul>
+        </ul>
+      </ul>
+    </div>
+    <div class="col-13">
+      <div class="imgcite" style="padding-top: 20px;">
+        <iframe src="https://giphy.com/embed/4JCWtwL4vM2aTkHdNw" width="624" height="345" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <cite><a href="https://giphy.com/gifs/snl-saturday-night-live-season-47-4JCWtwL4vM2aTkHdNw">via GIPHY</a></cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Phenotypical data</h2>
+  <ul>
+    <li>Age, sex, and handedness are publicly available</li>
+    <li>All other HBN phenotypic data are protected by a data usage agreement</li>
+    <ul>
+      <li>Clinician administered: K-SADS</li>
+      <li>Diagnostic specific assessments for ASD, Speech/Language disorders, intellectual disability, OCD, and tic disorders</li>
+      <li>Intelligence and learning: WIAT, WISC</li>
+      <li>Language: CELF-5, GFTA, CTOPP-2, TOWRE-2, EVT, PPVT</li>
+      <li>Self administered assessments: family structure, behavior, stress, trauma, and substance use</li>
+      <li>Novel data: voice recordings, actigraphy, genetics, deciduous “baby” teeth</li>
+    </ul>
+    <li><a href="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fsdata.2017.181/MediaObjects/41597_2017_Article_BFsdata2017181_Fig1_HTML.jpg?as=webp">Click here for an overview chart</a></li>
+    <li><a href="http://fcon_1000.projects.nitrc.org/indi/cmi_healthy_brain_network/File/_pheno/Assessment_List_Jan2019.xlsx">Click here to download a comprehensive list of assessments</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Challenge</h2>
+  <div style="text-align: left;">
+    <ul>
+      <li>Data is BIDS-ish, which is a euphemism for not BIDS-compliant.</li>
+      <li>No publicly available preprocessed dMRI.</li>
+      <li>No quality measures.</li>
+    </ul>
+  </div>
+  <div class="imgcite" style="padding-top: 20px;">
+    <iframe src="https://giphy.com/embed/YUG7qlbCeRutqL1jPU" width="900" height="675" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <cite><a href="https://giphy.com/gifs/reaction-YUG7qlbCeRutqL1jPU">via GIPHY</a></cite>
+  </div>
+</section>
+
+<section>
+  <h2>Solution</h2>
+  <p>Apply best practices via QSIPrep, perform QC, and host on FCP-INDI.</p>
+  <embed
+    title="HBN-POD2 data flow"
+    width="1800"
+    height="800"
+    src="./img/hbn-pod2-sankey.html">
+  </embed>
+  <p>
+    TLDR: Preprocessing large datasets is hard. Do it once!
+  </p>
+</section>

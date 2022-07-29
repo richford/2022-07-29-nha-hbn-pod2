@@ -3,11 +3,6 @@ SHELL := /bin/bash
 HTTPHOST ?= 127.0.0.1
 PORT ?= 8001
 
-RSYNC_DEST ?= 2019-ohbm-software-demo
-RSYNC_HOST ?= example.com
-RSYNC_SRC ?= css js lib index.html plugin third_party_plugins webfonts
-RSYNC_USER ?= richford
-
 python = /usr/bin/env python $(1)
 
 .DEFAULT_GOAL := help
@@ -58,10 +53,6 @@ serve: ## Serve the slides
 .PHONY: demo
 demo: ## Open the reveal.js demo
 	$(call python,-m webbrowser file://$$(pwd)/node_modules/reveal.js/demo.html)
-
-.PHONY: deploy
-deploy: ## Deploy the slides
-	rsync --copy-links --delete --recursive --verbose $(RSYNC_SRC) $(RSYNC_USER)@$(RSYNC_HOST):$(RSYNC_DEST)
 
 .PHONY: pdf
 pdf: ## Export slides as PDF
